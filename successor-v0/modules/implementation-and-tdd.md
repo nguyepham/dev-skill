@@ -26,7 +26,6 @@ A TDD cycle is one behavior test that fails for the expected reason, the minimum
 | An optimized slice needs context fit | [Context Optimization](context-optimization.md) | Bounded material for the slice |
 | A normal-mode slice cannot fit | [Mode Gate](../../mode-gate.md) | Re-admitted profile with an optimized mode suggested |
 | A bounded unexpected failure appears | [Diagnosing Bugs](diagnosing-bugs.md) | Supported cause and bounded fix scope to Work |
-| A compatible host enters or advances an implementation boundary | [Host Enforcement](host-enforcement.md) | Checkpoint-scoped candidate construction or return; `instruction-guided` when no interception exists |
 | A correction changes meaning, scope, authority, or adds a safeguard, fallback, verification, recovery, or action beyond the smallest owning change | [Work](../work.md) | Semantic correction candidate; Work invokes its Review then Decision calls before any expanded write |
 
 ## Checkpoints

@@ -43,7 +43,6 @@ One Work slice completes its findings, fixes, repeat findings, verification, and
 | A finding set needs its determined-correction or semantic-disposition split | [Semantic-choice test](../../SKILL.md) | Determined correction to its owner or unresolved semantic finding to Decision |
 | A final Grilling decision record governs review findings or corrections | [Decision](decision.md) | Actionable finding or invalidated action request for the current candidate |
 | Findings leave a semantic option or closure disposition unresolved | [Decision](decision.md) | Semantic disposition to the calling operation or declared closure consumer |
-| A compatible host enters or advances a declared Review boundary | [Host Enforcement](host-enforcement.md) | Checkpoint-scoped entry or findings return; `instruction-guided` when no interception exists |
 
 ## Checkpoints
 

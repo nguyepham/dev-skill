@@ -32,7 +32,6 @@ Plan owns lifecycle order, module calls and returns, and terminals. It does not 
 | A final Grilling decision record governs planning | [Grilling](modules/grilling.md) | Exact scope and intent, accepted decisions, crosswalk, and roadmap disposition bind the plan outcome, specification, tickets, and closure-unit selection |
 | A plan candidate needs findings | [Review](modules/review.md) | Findings to the current Plan operation |
 | A frozen plan candidate has a semantic choice | [Review](modules/review.md), then [Decision](modules/decision.md) | Findings and semantic disposition to the current Plan operation |
-| A `mutation-guarded` host enters or advances a Plan boundary | [Host Enforcement](modules/host-enforcement.md) | Exact checkpoint-scoped roadmap, ticket, or decision-record mutation; `instruction-guided` when no interception exists |
 
 ## Checkpoints
 
@@ -68,8 +67,6 @@ Create one decision-to-outcome map before roadmap creation and ticket compilatio
 A validation gap needed to interpret an affected change is `current` before that change; it does not promote unrelated validation repair.
 
 Future work re-enters Plan only from its linked dependency, exact Research or Prototype evidence change, changed user goal, priority, or constraint, observed workload scale, target platform condition, measured performance budget breach, named task or handoff resumption, or Plan-declared operating milestone or shipment closure. Read only linked items. At an operating milestone or shipment closure, each linked provisional resolution becomes current implementation, an already-covered exact accepted scope result, or a Grilling scope amendment; otherwise return to Plan. Passing current-slice checks never closes remaining final behavior silently.
-
-Under `mutation-guarded` enforcement, only an exact roadmap, ticket, or decision-record state-changing action uses the matching Plan binding and exact target. Reads, source sizing, and mapping remain unguarded. This adds no Plan-specific Guard protocol.
 
 When an accepted Design result or final Grilling decision record covers a complete planned outcome, declare its smallest closure unit from that scope and the planned tickets: one complete implementation, one phase, the roadmap, or a merge. An unresolved unit choice uses Review then Decision. A roadmap unit closes every planned phase before the full roadmap. A Work slice contributes to a closure unit; a checkbox does not create one.
 

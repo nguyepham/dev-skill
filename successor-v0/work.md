@@ -34,7 +34,6 @@ Work owns admission, one-slice order, module calls and returns, the per-slice re
 | A frozen implementation or diagnosis-fix candidate is semantic | [Review](modules/review.md), then [Decision](modules/decision.md) | Findings and semantic disposition to the owning Work slice |
 | Human-owned Work meaning, priority, or authority remains unresolved | [Grilling](modules/grilling.md) | Accepted rule or next human question to Work |
 | A completed outcome has a reusable pattern | [Common Sense](modules/common-sense.md), after Review and Decision | Accepted table update or no change to the project table |
-| A compatible host enters or advances a Work boundary | [Host Enforcement](modules/host-enforcement.md) | Checkpoint-scoped slice order or integration advance; `instruction-guided` when no interception exists |
 
 Complete review, correction, verification, and integration for one slice before beginning a dependent slice. A changed meaning, authority, or scope reopens Plan or Design. An eligible completed result may offer a Common Sense update through Review and Decision.
 

@@ -27,7 +27,6 @@ Grilling owns the decision frontier, reviewed question presentation, exact human
 | A packet needs rendering | [Write](write.md) | Rendered packet without changed questions or options |
 | A final-design crosswalk needs semantic validation | [Decision](decision.md) | One validated closure packet or one bounded Grill question for each applicable unmapped item |
 | A completed Grill needs its final decision record | [Domain Modeling](domain-modeling.md) | Exact final decisions at the caller-authorized project location |
-| A compatible host enters or advances a declared Grilling boundary | [Host Enforcement](host-enforcement.md) | Checkpoint-scoped entry or advance; `instruction-guided` when no interception exists |
 
 ## Checkpoints
 

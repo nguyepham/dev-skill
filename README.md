@@ -36,8 +36,7 @@ flowchart TB
 
 | Family or overlay | Module or sub-operation | Job |
 |---|---|---|
-| Admission | Mode Gate | Confirm host, mode, adapter choice, and capability fit |
-| Runtime | Host Enforcement | Enter and advance declared operation checkpoints when the host can intercept them |
+| Admission | Mode Gate | Confirm host, mode, and capability fit |
 | Route | Route | Select one current consumer |
 | Route | Project Discovery | Establish greenfield, brownfield, or uncertain facts |
 | Route | Common Sense — Vibe and Attention | Retrieve a relevant pattern reference |
@@ -59,7 +58,6 @@ flowchart TB
 | Work | Diagnosing Bugs | Narrow symptoms to a supported cause |
 | Work | Handoff and Boundaries | Transfer work across a real boundary |
 | Work | Context Optimization | Bound reading, reasoning, writing, and continuation |
-| Runtime | Rebon Host Adapter | Choose one-shot cards or full native coordination; optionally classify Guard capability |
 | Presentation | Write | Render reports, records, conversations, and instructions |
 | Presentation | Markdown Tables and Diagrams | Render a selected structure clearly |
 | Presentation | Writing Style | Select an explicit writing treatment |
@@ -110,47 +108,23 @@ A module may not add machinery merely because it looks safe. Review finds proble
 | Local single agent | Sequential workflow |
 | Small context window | Bounded reading and synthesis |
 | Parallel agent host | Specialized bounded workers |
-| Rebon optimized mode | Context optimization and durable continuation |
-
-On compatible Rebon agents, a goal with settled design and permissions can continue for **10+ hours without constant human supervision**. Context-heavy reading, implementation, review, and verification stay bounded, so the main agent does not carry every file and failed attempt forever.
+| Optimized mode | Context optimization and durable continuation |
 
 Humans still own meaning, authority, and permissions.
 
 ## Installation
 
-### Full package
-
 ```bash
 git clone https://github.com/shaggyfeng/Dev-Skill-Unslop.git
 ```
 
-The repository is the full installation: the DevSkill runtime plus Guard Core and Rebon adapter source. Install the repository as `dev-skill` inside your agent’s skill directory. The first selected Rebon enforcement session installs Guard Core's locked npm dependency, configures the bridge, and asks only for one fresh Rebon session.
-
-For Codex:
+Install the repository as `dev-skill` inside your agent’s skill directory. For Codex:
 
 ```text
 ~/.codex/skills/dev-skill
 ```
 
 Then describe the task normally. The skill routes the work.
-
-### Full instruction-guided skill
-
-Download `DevSkill-Unslop-2.4.3-soft-guide.zip` when you want the complete DevSkill instruction set without host-enforcement code. It trusts the agent model to follow DevSkill directly; it contains no host-adapter source or optional npm host code and operates as `instruction-guided`.
-
-### Add host enforcement
-
-Start with the instruction-guided skill, then extract the shared Guard Core patch and one matching host patch into that same DevSkill folder when code-level enforcement is needed.
-
-| Release asset | Install when | Requires |
-|---|---|---|
-| `DevSkill-Unslop-2.4.3-soft-guide.zip` | You trust the model to follow DevSkill | Nothing else |
-| `DevSkill-Unslop-2.4.3-guard-core-patch.zip` | You need code-level host enforcement | Instruction-guided skill |
-| `DevSkill-Unslop-2.4.3-rebon-adapter-patch.zip` | You use Rebon with enforcement | Instruction-guided skill + Guard Core |
-
-The instruction-guided skill is complete. The Rebon patch adds code-level behavior enforcement for weaker models; a smart model can follow the runtime instructions without it. The patch includes its setup guide.
-
-Install a supported host adapter once. At Mode Gate, the host asks whether to use code-level enforcement or the instruction-guided skill. On a first Rebon enforcement choice, DevSkill installs the locked Guard Core dependency, configures the bridge, and asks only for one fresh Rebon session. The installed hook remains dormant until enforcement is selected, then the adapter starts the Core and activates its current session. The soft choice deactivates it; host-session exit releases only that session.
 
 ## Author
 

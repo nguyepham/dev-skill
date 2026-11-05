@@ -24,7 +24,6 @@ Release owns reconciliation, lifecycle order, result consumption, effect or term
 | Human-owned release meaning, priority, or authority is unresolved | [Grilling](modules/grilling.md) | Accepted rule or next human question to Release |
 | A Plan-declared phase, roadmap, or merge unit needs closure | [Review](modules/review.md), then [Decision](modules/decision.md) | Three-axis findings and disposition to the declared closure consumer |
 | A Plan-declared operating milestone or shipment closure has linked provisional resolutions | [Plan](plan.md) | Linked resolutions become current implementation, already-covered exact accepted scope, or a Grilling scope amendment |
-| A compatible host enters or advances a Release boundary | [Host Enforcement](modules/host-enforcement.md) | Checkpoint-scoped reconciliation, effect, or return; `instruction-guided` when no interception exists |
 
 Only a Plan-declared closure unit uses the closure review topology. A non-effect result is a valid release terminal when no eligible lifecycle mutation exists.
 

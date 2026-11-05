@@ -33,7 +33,6 @@ An ADR lives at `docs/adr/{NNNN}-{slug}.md`, uses the next sequential number, an
 | Design or Plan needs a candidate domain model | [Design](../design.md) or [Plan](../plan.md) | Bound task facts and the candidate model's consumer |
 | A term, rule, ownership, or ADR choice is semantic | [Review](review.md), then [Decision](decision.md) | Findings and accepted disposition before any exact write |
 | Human-owned meaning remains unresolved | [Grilling](grilling.md) | Accepted rule or next question for the candidate model |
-| A compatible host enters or advances a Domain Modeling boundary | [Host Enforcement](host-enforcement.md) | Checkpoint-scoped candidate return or exact write; `instruction-guided` when no interception exists |
 
 ## Checkpoints
 
