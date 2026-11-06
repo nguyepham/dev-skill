@@ -16,7 +16,7 @@ Use only this package for DevSkill runtime instructions. The package contains ru
 4. When Route selects a family, load that family and only the modules named by its Runtime calls; each operation returns through its bounded-closure result to its declared consumer.
 5. When findings are needed, load [Review](successor-v0/modules/review.md); it returns findings to the calling operation.
 
-Resolve all paths from this package root. Keep runtime checkpoints internal. State the selected host, mode, subagent use, context optimization, and roadmap intent once when admission completes.
+Resolve all paths from this package root. Keep runtime checkpoints internal. Treat Tau as the fixed host. State the selected mode, subagent use, context optimization, and roadmap intent once when admission completes.
 
 ## Runtime references
 
@@ -99,7 +99,7 @@ Every implementation slice uses the two-axis barrier regardless of roadmap-check
 
 ## Re-entry
 
-After bounded closure, silently return to the active family and its [Route](successor-v0/stage-0-route.md) edge. A determined result advances to its declared consumer. A changed stage, review result, semantic change, host or mode change, failed tool call, or resume loads the current family and the producing and consuming modules; their declared return determines the next consumer. A sequential-optimized continuation also loads [Context Optimization](successor-v0/modules/context-optimization.md) for its continuation structure.
+After bounded closure, silently return to the active family and its [Route](successor-v0/stage-0-route.md) edge. A determined result advances to its declared consumer. A changed stage, review result, semantic change, mode change, failed tool call, or resume loads the current family and the producing and consuming modules; their declared return determines the next consumer. A sequential-optimized continuation also loads [Context Optimization](successor-v0/modules/context-optimization.md) for its continuation structure.
 
 Never print internal checkpoints, ledgers, retries, fragments, or worker results.
 

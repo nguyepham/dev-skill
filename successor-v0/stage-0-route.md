@@ -2,12 +2,12 @@
 
 ## Admission
 
-Run Route for every engineering request after Mode Gate admits the host and mode. Route owns lifecycle order, call/return edges, stage selection, and terminals only.
+Run Route for every engineering request in Tau after Mode Gate admits the mode and its required capabilities. Route owns lifecycle order, call/return edges, stage selection, and terminals only.
 
 ## Lifecycle
 
 ```text
-provider and host evidence
+Tau session
   -> mode admission
   -> clear direct overlay
   -> or accepted active-stage continuation
@@ -68,7 +68,7 @@ Direct overlay precedes stage continuation. An overlay returns to its current st
 ## Invariants
 
 - Route is a lifecycle skeleton; modules own detailed operations. Every operation has one owner.
-- Mode Gate alone owns provider/host evidence, suggestion, governance, mode, host, roadmap intent, admission, and re-entry.
+- Mode Gate alone owns mode selection, capability validation, governance, roadmap intent, admission, and re-entry. Tau is the fixed host.
 - `admitted` is profile capability only. A `current operation` starts after Route selects an owner and its first Markdown checkpoint begins.
 - Direct overlay precedes active-stage continuation; overlay returns to its stage or requester without changing stage.
 - Indirect engineering intent that does not determine its next operation enters Decision. Decision returns Human Intent State, a factual gap, or a human question only; Route alone selects its consumer and terminal.

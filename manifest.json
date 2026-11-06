@@ -36,7 +36,6 @@
     "successor-v0/modules/context-optimization.md",
     "successor-v0/modules/talk-like-king.md",
     "mode-gate.md",
-    "agents/openai.yaml",
     "agents/dev-skill.md"
   ]
 }

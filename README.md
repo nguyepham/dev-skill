@@ -36,7 +36,7 @@ flowchart TB
 
 | Family or overlay | Module or sub-operation | Job |
 |---|---|---|
-| Admission | Mode Gate | Confirm host, mode, and capability fit |
+| Admission | Mode Gate | Use Tau as fixed host; validate mode capability fit |
 | Route | Route | Select one current consumer |
 | Route | Project Discovery | Establish greenfield, brownfield, or uncertain facts |
 | Route | Common Sense — Vibe and Attention | Retrieve a relevant pattern reference |
@@ -70,7 +70,7 @@ Each module has a task trigger, inputs, operation, authority boundary, return, a
 
 ```mermaid
 flowchart TB
-    A["Task arrives"] --> B["Mode and host admission"]
+    A["Task arrives"] --> B["Tau session and mode admission"]
     B --> C["Route"]
     C --> D{"Next operation determined?"}
     D -->|"Yes"| G["Next stage or module"]
@@ -107,7 +107,7 @@ A module may not add machinery merely because it looks safe. Review finds proble
 |---|---|
 | Local single agent | Sequential workflow |
 | Small context window | Bounded reading and synthesis |
-| Parallel agent host | Specialized bounded workers |
+| Tau with parallel agents | Specialized bounded workers |
 | Optimized mode | Context optimization and durable continuation |
 
 Humans still own meaning, authority, and permissions.
@@ -118,13 +118,7 @@ Humans still own meaning, authority, and permissions.
 git clone https://github.com/shaggyfeng/Dev-Skill-Unslop.git
 ```
 
-Install the repository as `dev-skill` inside your agent’s skill directory. For Codex:
-
-```text
-~/.codex/skills/dev-skill
-```
-
-Then describe the task normally. The skill routes the work.
+Install the repository as `dev-skill` in Tau. Then describe the task normally. The skill routes the work.
 
 ## Author
 

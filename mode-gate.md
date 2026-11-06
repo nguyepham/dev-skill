@@ -2,7 +2,7 @@
 
 ## Contract
 
-Mode Gate alone owns provider and host evidence, suggested mode and host, human confirmation, governance, roadmap intent, capability validation, admission, and mode re-entry. A selected mode's missing capability returns `mode_not_admitted` before task work.
+Mode Gate owns Tau's fixed host, mode selection, governance, roadmap intent, capability validation, admission, and mode re-entry. A selected mode's missing capability returns `mode_not_admitted` before task work.
 
 ## Runtime references
 
@@ -14,56 +14,55 @@ Mode Gate alone owns provider and host evidence, suggested mode and host, human 
 
 ## Inputs
 
-Read trusted provider and host capability metadata without asking a provider question. Do not use model names or installed commands as host identity.
+Tau is the implicit and only host. Use current Tau session capabilities; never identify or ask the user to identify a host.
 
-## Evidence-based suggestion
+## Capability-based suggestion
 
-Use trusted host or session metadata and documented capability evidence. Establish provider, host, usable subagents, context capacity, workload, and display support without exposing secret values.
+Use Tau's current session and documented capability evidence. Establish usable subagents, context capacity, workload, and display support without exposing secret values.
 
 ### Evidence precedence and operation
 
-1. Trust runtime host/session metadata first.
-2. If a field remains unresolved, use only trusted provider or host capability evidence. Do not enumerate arbitrary environment variables or infer locality from a model name, URL shape, or speed.
-3. Normalize evidence into provider kind, host kind, usable subagents, context capacity, workload request, and display support. Keep only the current sources and classifications; never expose secret contents.
-4. Compile at most one suggested mode and one suggested host with the supporting capability evidence. Conflicting evidence fails closed; do not merge profiles.
-5. Present one evidence-supported host and mode suggestion for human confirmation before mode selection. Governance never bypasses these confirmations.
-6. Missing capability evidence, unresolved provider/session identity, or a conflicting suggestion returns the existing typed unresolved/admission failure. Never invent a suggestion or capability proof.
+1. Trust current Tau session capability metadata first.
+2. If a capability remains unresolved, use only trusted capability evidence from Tau's active session. Do not enumerate arbitrary environment variables or infer capabilities from a model name, URL shape, or speed.
+3. Normalize evidence into usable subagents, context capacity, workload request, and display support. Keep only the current sources and classifications; never expose secret contents.
+4. Compile at most one suggested mode from the supporting capability evidence. Conflicting evidence fails closed; do not merge profiles.
+5. Present one evidence-supported mode suggestion for human confirmation before mode selection. Governance never bypasses this confirmation.
+6. Missing capability evidence or a conflicting suggestion returns the existing typed unresolved/admission failure. Never invent a suggestion or capability proof.
 
-Provider discovery authorizes DevSkill routing only; it does not grant project-runtime authority, approval, publication, or human decision power.
+Capability discovery authorizes DevSkill routing only; it does not grant project-runtime authority, approval, publication, or human decision power.
 
 ## Delegated profile
 
-A delegated task inherits its parent's admitted host, mode, and relevant task boundary. It does not rerun mode selection or prove nested subagent capacity. A changed host, mode, scope, or consumer returns to Mode Gate.
+A delegated task inherits its parent's admitted mode and relevant task boundary. It does not rerun mode selection or prove nested subagent capacity. A changed mode, scope, or consumer returns to Mode Gate.
 
 ## Admission order
 
-1. Validate trusted provider/host capability evidence in a supplied inherited profile; when its delegated-task bindings match, reuse it and emit the admitted profile.
-2. Without a valid inherited profile, read provider metadata and capability evidence before asking for mode, host, or roadmap intent.
-3. Normalize the evidence and compile one suggested host and mode.
-4. Ask the human to confirm the suggestion. If the human declines or evidence is unresolved, ask mode first from the four choices, then host. Do not inspect provider evidence again.
+1. Validate trusted Tau capability evidence in a supplied inherited profile; when its delegated-task bindings match, reuse it and emit the admitted profile.
+2. Without a valid inherited profile, read current Tau capability evidence before asking for mode or roadmap intent.
+3. Normalize the evidence and compile one suggested mode.
+4. Ask the human to confirm the suggestion. If the human declines or evidence is unresolved, ask for a mode from the four choices. Do not inspect capability evidence again.
 5. Resolve `roadmap_checkbox_update` before implementation only when the task uses a roadmap checkbox. It records a later checklist update; it does not choose a review route or axis. Resolve governance only when the user names or accepts roadmap or session-goal continuation.
 6. At `admission_evaluated`, validate the selected mode against its required capability.
-7. At `admission_returned`, announce the admitted host, provider, mode, subagent use, Context Optimization use, and roadmap intent once. Admission is capability only: it does not begin an operation or authorize a state change.
+7. At `admission_returned`, announce Tau as the fixed host, the admitted mode, subagent use, Context Optimization use, and roadmap intent once. Admission is capability only: it does not begin an operation or authorize a state change.
 
 ## Admission representation
 
 ```text
-trusted evidence
-  -> suggested host and mode
+Tau capability evidence
+  -> suggested mode
   -> confirmed suggestion | explicit mode choice
-  -> host choice when required
   -> roadmap or governance choice when relevant
   -> capability validation
   -> admitted | mode_not_admitted
 ```
 
-No state silently advances. Conflicting evidence, unresolved identity, a missing selected-mode capability, or an invalid host-mode pairing returns `mode_not_admitted` and asks only for the missing decision.
+No state silently advances. Unresolved or conflicting Tau capability evidence returns the typed unresolved/admission failure. A missing selected-mode capability returns `mode_not_admitted` and asks only for the missing decision.
 
 ## Checkpoints
 
 | When | Checkpoint | Allows |
 |---|---|---|
-| Trusted evidence and required human confirmations are available | `admission_evaluated` | Capability validation and one admitted profile or `mode_not_admitted` result |
+| Trusted capability evidence and required mode confirmation are available | `admission_evaluated` | Capability validation and one admitted profile or `mode_not_admitted` result |
 | Profile fields and capability validation pass, or a required field fails | `admission_returned` | Route receives the admitted profile or stops at `mode_not_admitted` |
 
 ## Mode selection
@@ -77,11 +76,11 @@ Show exactly these four choices:
 | `sequential-normal` | one task at a time | normal context | sequential execution |
 | `sequential-optimized` | one task at a time | optimized context and handoff | planning tools and durable handoff |
 
-The selected value is the execution mode. Provider evidence may suggest one, but it is not admitted until confirmed or selected. `Not sure, help me narrowing it down.` is a decision-support choice, not a fifth mode: ask one mode-fitting question at a time and retain the same choice until a mode is selected.
+The selected value is the execution mode. Current Tau capability evidence may suggest one, but admission requires confirmation or explicit selection. `Not sure, help me narrowing it down.` is a decision-support choice, not a fifth mode: ask one mode-fitting question at a time and retain the same choice until a mode is selected.
 
 Context Optimization runs only in the two optimized modes through the Runtime reference. A normal-mode context failure returns here with an optimized mode suggested; it never silently becomes an optimized run.
 
-If a trusted user-authored mode preference exists in agent memory, announce it and present the same four choices for confirmation or override. DevSkill stores no preference. On a persistence request, direct the host to save the confirmed mode outside this package.
+If a trusted user-authored mode preference exists in agent memory, announce it and present the same four choices for confirmation or override. DevSkill stores no preference. On a persistence request, direct Tau to save the confirmed mode outside this package.
 
 ## Capability validation
 
@@ -92,22 +91,13 @@ If a trusted user-authored mode preference exists in agent memory, announce it a
 | `sequential-normal` | sequential execution |
 | `sequential-optimized` | sequential execution, planning tools, and durable handoff |
 
-Use current host capability evidence for the selected mode only.
+Use current Tau capability evidence for the selected mode only.
 
 On missing capability, return `mode_not_admitted`, identify the missing capability, and show the four choices again. Do not silently change the mode.
 
-After admission, a selected operation can lose a host-native tool without changing the admitted profile. Its owning module returns current-operation recovery; it never retroactively returns `mode_not_admitted` or silently changes mode.
+After admission, a selected operation can lose a Tau-native tool without changing the admitted profile. Its owning module returns current-operation recovery; it never retroactively returns `mode_not_admitted` or silently changes mode.
 
 `sequential-optimized` requires a usable continuation location. Missing continuation capability returns `mode_not_admitted`; it does not permit an oversized direct read.
-
-## Host
-
-| Evidence | Host |
-|---|---|
-| Trusted runtime host metadata | Reported host |
-| No trusted host identity | ask one host question; remain non-admitted until answered |
-
-An installed command, provider, model, endpoint, or Agent capability does not establish host identity.
 
 ## Roadmap checkbox
 
@@ -139,16 +129,14 @@ Announce the selected profile once — with the admitted profile when governance
 
 ## Admission result
 
-Admission requires resolved host, provider, mode, and selected capability fit. It also requires a roadmap answer only when the task uses a roadmap checkbox and a governance answer only for session or roadmap continuation. Plan selects any later closure unit from the final Grilling record and matching plan. `route_status=admitted` is required before repository work, but it is not a current operation or mutation authority.
+Admission requires the selected mode and its capability fit. It also requires a roadmap answer only when the task uses a roadmap checkbox and a governance answer only for session or roadmap continuation. Plan selects any later closure unit from the final Grilling record and matching plan. `route_status=admitted` is required before repository work, but it is not a current operation or mutation authority.
 
 ## Recovery
 
-- Missing provider/session identity or conflicting evidence returns the typed unresolved/admission failure; it cannot produce an admitted profile or invented suggestion.
-- Missing host identity returns one host question and remains non-admitted.
+- Conflicting or insufficient Tau capability evidence returns the typed unresolved/admission failure; it never produces an invented suggestion or silently changes the selected mode.
 - Missing selected-mode capability returns `mode_not_admitted` without changing the selected value.
-- Conflicting or insufficient provider evidence returns the typed unresolved/admission failure; it never produces an invented suggestion or silently changes the selected mode.
-- Changed host, provider, mode, roadmap-checkbox intent, or governance profile invalidates the profile and reruns admission order.
+- Changed mode, roadmap-checkbox intent, or governance profile invalidates the profile and reruns admission order.
 
 ## Completion
 
-Complete only when the profile fields are present, selected-mode capability validation passes, and `route_status=admitted`.
+Complete only when selected-mode capability validation passes and `route_status=admitted`.
